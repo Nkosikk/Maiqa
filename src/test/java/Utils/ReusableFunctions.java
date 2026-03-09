@@ -42,12 +42,34 @@ public class ReusableFunctions {
         }
     }
 
+    public void selectByValue(By locator, String optionValue) {
+        Select select = new Select(waitForVisible(locator));
+        select.selectByValue(optionValue);
+    }
+
+    public void selectByVisibleText(By locator, String visibleText) {
+        Select select = new Select(waitForVisible(locator));
+        select.selectByVisibleText(visibleText);
+    }
+
     public WebElement waitForVisible(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    public WebElement waitForVisibility(By locator) {
+        return waitForVisible(locator);
+    }
+
     public String getText(By locator) {
         return waitForVisible(locator).getText().trim();
+    }
+
+    public boolean isVisible(By locator) {
+        try {
+            return waitForVisible(locator).isDisplayed();
+        } catch (TimeoutException ex) {
+            return false;
+        }
     }
 
     public boolean isSelected(By locator) {
@@ -68,5 +90,9 @@ public class ReusableFunctions {
         } catch (TimeoutException ex) {
             return false;
         }
+    }
+
+    public WebDriverWait getWait() {
+        return wait;
     }
 }
