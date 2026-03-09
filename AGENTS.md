@@ -9,7 +9,7 @@
 - `pom.xml`: dependencies and Surefire include list.
 - `testng.xml`: TestNG suite entry.
 - `src/test/java/runners/TestNGRunner.java`: Cucumber + TestNG runner.
-- `src/test/java/features/smoke/Smoke.feature`: baseline smoke scenario.
+- `src/test/resources/features/login.feature`: baseline smoke scenario.
 - `src/test/java/StepDefinations/Base.java`: shared WebDriver lifecycle.
 - `src/test/java/StepDefinations/stepsDef.java`: sample step bindings.
 - `src/test/java/Helpers/BrowserSetup.java`: browser bootstrap and options.
